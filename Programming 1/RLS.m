@@ -13,3 +13,4 @@ for i = 1:n
    end
 end
 theta = inv(A*(A') + lamda * eye(q+1))*A*b;
+end

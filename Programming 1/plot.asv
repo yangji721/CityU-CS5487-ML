@@ -1,0 +1,14 @@
+function plot(x ,y ,theta ,q)
+M = max(x);
+N = min(x);
+dx = (M - N)/100;
+
+for j = 1 : 101
+    xx(j) = x(1) + dx*(j-1);
+    yy(j) = 0;
+    for k = 1:6
+        yy(j) = yy(j) + 
+    end
+end
+
+end

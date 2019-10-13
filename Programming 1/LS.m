@@ -11,3 +11,4 @@ for i = 1:n
    end
 end
 theta = inv(A*(A'))*A*b;
+end

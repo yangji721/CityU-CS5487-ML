@@ -17,7 +17,7 @@ lamda = 1;
 % Set quadprog parameter
 H = [A*(A'), -A*(A'); -A*(A'), A*(A')];
 f = lamda*ones(2*q+2,1) - [A*b;-A*b];
-B = -eye(2*q+2,2*q+2);
-c = zeros(2*q+2,0);
+B = -eye(2*q+2);
+c = zeros(2*q+2,1);
 theta = quadprog(H,f,B,c);
-
+end

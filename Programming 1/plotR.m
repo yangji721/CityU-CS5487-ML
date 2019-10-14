@@ -1,4 +1,4 @@
-function plotR(x ,y ,theta ,q)
+function plotR(x ,y ,theta ,q, bit)
 M = max(x(:));
 N = min(x(:));
 dx = (M - N)/100;
@@ -10,6 +10,29 @@ for j = 1 : 101
         yy(j) = yy(j) + theta(k)*xx(j)^k;
     end
 end
-plot(x,y,'+',xx,yy);
-title('Linear Regression');
+
+switch bit
+    case 0
+        figure(1)
+        plot(x,y,'+',xx,yy)
+        legend({'samples','function'},'Location','northeast')
+        title('Least-Squares (LS)')
+    case 1
+        figure(2)
+        plot(x,y,'+',xx,yy)
+        legend({'samples','function'},'Location','northeast')
+        title('Regularized LS (RLS)');
+    case 2
+        figure(3)
+        plot(x,y,'+',xx,yy)
+        legend({'samples','function'},'Location','northeast')
+        title('L1-regularized LS (LASSO)');
+    case 3
+        figure(4)
+        plot(x,y,'+',xx,yy)
+        legend({'samples','function'},'Location','northeast')
+        title('robust regression (RR)');
+    case 4
+        title('Bayesian regression (BR)');
+end
 end

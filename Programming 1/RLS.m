@@ -1,4 +1,4 @@
-function [theta] = RLS(x ,y ,n ,q)
+function [theta] = RLS(x ,y ,n,q)
 % x is the input set; 
 % y is the output set;
 % n is the set size;

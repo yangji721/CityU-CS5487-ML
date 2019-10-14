@@ -7,7 +7,7 @@ for j = 1 : 101
     xx(j) = N + dx*(j-1);
     yy(j) = 0;
     for k = 1:q+1
-        yy(j) = yy(j) + theta(k)*xx(j)^k;
+        yy(j) = yy(j) + theta(k)*xx(j)^(k-1);
     end
 end
 
@@ -32,7 +32,5 @@ switch bit
         plot(x,y,'+',xx,yy)
         legend({'samples','function'},'Location','northeast')
         title('robust regression (RR)');
-    case 4
-        title('Bayesian regression (BR)');
 end
 end

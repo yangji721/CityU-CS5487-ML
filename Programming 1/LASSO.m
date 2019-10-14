@@ -8,7 +8,7 @@ b = zeros(n,1);
 for i = 1:n
    b(i) = y(i);
    for j = 1:q+1
-       A(j,i) = x(i)^j;
+       A(j,i) = x(i)^(j-1);
    end
 end
 % Since LASSO doesn;t have closed-form answer, we use equivalent quadratic programming

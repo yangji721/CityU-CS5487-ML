@@ -9,7 +9,7 @@ lamda = 1;
 for i = 1:n
    b(i) = y(i);
    for j = 1:q+1
-       A(j,i) = x(i)^j;
+       A(j,i) = x(i)^(j-1);
    end
 end
 theta = inv(A*(A') + lamda * eye(q+1))*A*b;

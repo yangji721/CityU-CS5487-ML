@@ -1,0 +1,74 @@
+\documentclass[12pt]{myarticle}
+
+\usepackage{float}
+\begin{document}
+
+\section*{Problem Set 4}
+\subsection*{4.5 (b) Data Set}
+Firstly, I choose the hyperparameter (lambda \& pi) for different cluster number K.
+
+When K = 1, we set hyperparameter $\pi$ = 1, $\lambda$ = 1.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    K = 1       & $\pi$ & $\lambda$  \\ \hline
+    London & 1  & 0.92882 \\ \hline
+    Anwerp & 1  & 0.89583 \\ \hline
+    \end{tabular}
+\end{table}
+
+When K = 2, we set hyperparameter $\pi$ = [0.5,0.5], $\lambda$ =[1,2].
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    K = 1       & $\pi$  & $\lambda$  \\ \hline
+    London & [0.57883,0.42117]  & [0.86540,1.01598] \\ \hline
+    Anwerp & [0.66110,0.33890]  & [0.22974,2.19520] \\ \hline
+    \end{tabular}
+\end{table}
+
+When K = 3, we set hyperparameter $\pi$ = [0.33,0.33,0.34], $\lambda$ =[1,2,3].
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    K = 1       & $\pi$  & $\lambda$  \\ \hline
+    London & [0.475,0.326,0.199]  & [0.835,1.006,1.028] \\ \hline
+    Anwerp & [0.401,0.314, 0.285]  & [0.089,0.613,2.344] \\ \hline
+    \end{tabular}
+\end{table}
+
+When K = 4, we set hyperparameter $\pi$ = [0.25,0.25,0.25,0.25], $\lambda$ =[1,2,3,4].
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    K = 1       & $\pi$  & $\lambda$  \\ \hline
+    London & [0.441,0.295,0.171,0.093]  & [0.827,0.997,1.020,1.027] \\ \hline
+    Anwerp & [0.412,0.302,0.158,0.128]  & [0.096,0.619,2.339,2.339] \\ \hline
+    \end{tabular}
+\end{table}
+
+When K = 5, we set hyperparameter $\pi$ = [0.2,0.2,0.2,0.2, 0.2], $\lambda$ =[1,2,3,4,5].
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    K = 1       & $\pi$  & $\lambda$  \\ \hline
+    London & [0.426,0.282,0.161,0.087,0.045]  & [0.824,0.992,1.016,1.023,1.027] \\ \hline
+    Anwerp & [0.420,0.293,0.122,0.098,0.067]  & [0.101,0.623,2.336,2.336,2.336] \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection*{Conclusion}
+
+\subsection*{Codes}
+
+\end{document}

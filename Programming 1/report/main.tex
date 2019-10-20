@@ -2,6 +2,9 @@
 
 \usepackage{enumitem}
 \usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
@@ -36,7 +39,24 @@
 \subsection*{(a) Implement 5 regression algorithms}
 Source code can be found at \url{https://github.com/yangji12138/machine-learning/tree/master/Programming%201} or the Codes Appendix.
 
-\subsection*{(b) Using Sample Data to estimate 5-th order poly}
+\subsection*{(b) Using Sample Data to estimate 5-th order poly function}
+
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|c}
+    \hline
+        & Least-Sqaures (LS)     & \begin{tabular}[c]{@{}c@{}}Regularized LS (RLS)\\ $\lambda$ = 0.48\end{tabular} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}L1-Regularized LS (LASSO)\\ $\lambda$ = 0.48\end{tabular}} \\ \hline
+    MSE & 0.4086                 & 0.4076                                                                       & \multicolumn{1}{c|}{0.4086}                                                                            \\ \hline
+        & Robust Regression (RR) & Bayesian Regression (BR)                                                     &                                                                                                        \\ \cline{1-3}
+    MSE & 0.7680                 & 0.4592                                                                       &                                                                                                        \\ \cline{1-3}
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig/1b-ls.pdf}
+    \label{fig:1b-ls}
+\end{figure}
+
 
 \subsection*{Conclusion}
 Observe the experiment results, we can find that:

@@ -24,23 +24,27 @@ switch bit
         legend({'samples','function'},'Location','northeast')
         title('Least-Squares (LS)');
         fprintf('The value of MSE in Least-Squares (LS) is: %f\n',MSE);
+        saveas(figure(1),[pwd '/report/fig/1c-75%-ls.png']);
     case 1
         figure(2)
         plot(x,y,'+',xx,yy)
         legend({'samples','function'},'Location','northeast')
         title('Regularized LS (RLS)');
         fprintf('The value of MSE in Regularized LS (RLS) is: %f\n',MSE);
+        saveas(figure(2),[pwd '/report/fig/1c-75%-rls.png']);
     case 2
         figure(3)
         plot(x,y,'+',xx,yy)
         legend({'samples','function'},'Location','northeast')
         title('L1-regularized LS (LASSO)');
         fprintf('The value of MSE in L1-regularized LS (LASSO) is: %f\n',MSE);
+        saveas(figure(3),[pwd '/report/fig/1c-75%-lasso.png']);
     case 3
         figure(4)
         plot(x,y,'+',xx,yy)
         legend({'samples','function'},'Location','northeast')
         title('Robust Regression (RR)');
         fprintf('The value of MSE in robust regression (RR) is: %f\n',MSE);
+        saveas(figure(4),[pwd '/report/fig/1c-75%-rr.png']);
 end
 end

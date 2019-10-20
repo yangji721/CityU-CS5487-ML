@@ -30,5 +30,5 @@ end
    plot(x,y,'+',xx,yy,'r',xx,yymax,'g',xx,yymin,'b')
    legend({'samples','function','+1\sigma-function',' -1\sigma-function'},'Location','northeast')
    title('Bayesian regression (BR)');
-
+   saveas(figure(5),[pwd '/report/fig/1c-75%-br.png']);
 end

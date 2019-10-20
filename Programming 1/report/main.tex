@@ -4,6 +4,8 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{subcaption}
+\usepackage{mwe}
 
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
@@ -44,7 +46,7 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
 \begin{table}[H]
     \begin{tabular}{|c|c|c|c}
     \hline
-        & Least-Sqaures (LS)     & \begin{tabular}[c]{@{}c@{}}Regularized LS (RLS)\\ $\lambda$ = 0.48\end{tabular} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}L1-Regularized LS (LASSO)\\ $\lambda$ = 0.48\end{tabular}} \\ \hline
+        & Least-Sqaures (LS)     & \begin{tabular}[c]{@{}c@{}}Regularized LS (RLS)\\ $\lambda$ = 0.48\end{tabular} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}L1-Regularized LS (LASSO)\\ $\lambda$ = 0 \end{tabular}} \\ \hline
     MSE & 0.4086                 & 0.4076                                                                       & \multicolumn{1}{c|}{0.4086}                                                                            \\ \hline
         & Robust Regression (RR) & Bayesian Regression (BR)                                                     &                                                                                                        \\ \cline{1-3}
     MSE & 0.7680                 & 0.4592                                                                       &                                                                                                        \\ \cline{1-3}
@@ -53,17 +55,57 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{fig/1b-ls.pdf}
+    \includegraphics[width=0.75\textwidth]{fig/1b-ls.png}
     \label{fig:1b-ls}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/1b-rls.png} 
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}  
+        \centering 
+        \includegraphics[width=\textwidth]{fig/1b-lasso.png}   
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{fig/1b-rr.png} 
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{fig/1b-br.png} 
+    \end{subfigure}
+\end{figure}
+
+\subsection*{(c) Subset of Training Data}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c}
+    \hline
+        & \begin{tabular}[c]{@{}c@{}}Subset \\ Ratio\end{tabular} & Least-Sqaures (LS)     & \begin{tabular}[c]{@{}c@{}}Regularized LS (RLS)\\ $\lambda$ = 0.48\end{tabular} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}L1-Regularized LS (LASSO)\\ $\lambda$ = 0.5\end{tabular}} \\ \hline
+    MSE & 10\%                                                    & 28.312                 & 82.205                                                                       & \multicolumn{1}{c|}{27.046}                                                                           \\ \hline
+        & 25\%                                                    & 10.793                 & 3.475                                                                        & \multicolumn{1}{c|}{1.138}                                                                            \\ \hline
+        & 50\%                                                    & 12.857                 & 0.284                                                                        & \multicolumn{1}{c|}{0.95}                                                                             \\ \hline
+        & 75\%                                                    & 0.332                  & 0.941                                                                        & \multicolumn{1}{c|}{0.563}                                                                            \\ \hline
+        &                                                         & Robust Regression (RR) & Bayesian Regression (BR)                                                     &                                                                                                       \\ \cline{1-4}
+    MSE & 10\%                                                    & 13069.7                & 31.689                                                                       &                                                                                                       \\ \cline{1-4}
+        & 25\%                                                    & 1.011                  & 13.292                                                                       &                                                                                                       \\ \cline{1-4}
+        & 50\%                                                    & 3.95                   & 0.307                                                                        &                                                                                                       \\ \cline{1-4}
+        & 75\%                                                    & 0.257                  & 0.73                                                                         &                                                                                                       \\ \cline{1-4}
+    \end{tabular}
+    \end{table}
 
 \subsection*{Conclusion}
 Observe the experiment results, we can find that:
 
 \begin{enumerate}[label=(\roman*)]
-    \item For London, the cells could be approximately divided into two clusters: 45\%($\pi$) 0.8($\lambda$); 55\%($\pi$) 1.0($\lambda$).
-    \item For Antwerp, the cells could be approximately divided into two clusters: 40\%($\pi$) 0.85($\lambda$); 60\%($\pi$) 2.3($\lambda$).
+    \item 
 \end{enumerate}
 
 \subsection*{Codes}

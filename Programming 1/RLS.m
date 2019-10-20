@@ -5,7 +5,7 @@ function [theta] = RLS(x ,y ,n,q)
 % q is the order of polynomial;
 % Here we set lamda 1;
 b = zeros(n,1);
-lamda = 1;
+lamda = 0.48;
 for i = 1:n
    b(i) = y(i);
    for j = 1:q+1

@@ -18,8 +18,8 @@ for j = 1 : count
     sigmas(j) = mulv(xx(j), q)'*sigma*mulv(xx(j),q);
     %yy(j) = normrnd(mius(j),sigmas(j));
     yy(j) = mius(j);
-    yymax(j) = mius(j) + 2*sigmas(j);
-    yymin(j) = mius(j) - 2*sigmas(j);
+    yymax(j) = mius(j) + sigmas(j);
+    yymin(j) = mius(j) - sigmas(j);
     MSE = MSE + (yy(j)-polyy(j))^2;
 end
 
@@ -28,7 +28,7 @@ end
    
    figure(5)
    plot(x,y,'+',xx,yy,'r',xx,yymax,'g',xx,yymin,'b')
-   legend({'samples','function','Max-function','Min-function'},'Location','northeast')
+   legend({'samples','function','+1\sigma-function',' -1\sigma-function'},'Location','northeast')
    title('Bayesian regression (BR)');
 
 end

@@ -40,7 +40,7 @@ switch bit
         figure(4)
         plot(x,y,'+',xx,yy)
         legend({'samples','function'},'Location','northeast')
-        title('robust regression (RR)');
+        title('Robust Regression (RR)');
         fprintf('The value of MSE in robust regression (RR) is: %f\n',MSE);
 end
 end

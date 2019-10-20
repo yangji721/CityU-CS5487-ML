@@ -13,7 +13,7 @@ for i = 1:n
 end
 % Since LASSO doesn;t have closed-form answer, we use equivalent quadratic programming
 % to get a approximate solution
-lamda = 1;
+lamda = 0;
 % Set quadprog parameter
 H = [A*(A'), -A*(A'); -A*(A'), A*(A')];
 f = lamda*ones(2*q+2,1) - [A*b;-A*b];

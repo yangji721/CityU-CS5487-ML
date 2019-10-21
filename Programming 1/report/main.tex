@@ -37,11 +37,11 @@
     %emph=[2]{word1,word2}, emphstyle=[2]{style},    
 }
 
-\section*{Polynomial Function}
-\subsection*{(a) Implement 5 regression algorithms}
+\section*{1 Polynomial Function}
+\subsection*{1 (a) Implement 5 regression algorithms}
 Source code can be found at \url{https://github.com/yangji12138/machine-learning/tree/master/Programming%201} or the Codes Appendix.
 
-\subsection*{(b) Using Sample Data to estimate 5-th order poly function}
+\subsection*{1 (b) Using Sample Data to estimate 5-th order poly function}
 
 \begin{table}[H]
     \begin{tabular}{|c|c|c|c}
@@ -82,7 +82,7 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
     \end{subfigure}
 \end{figure}
 
-\subsection*{(c) Subset of Training Data}
+\subsection*{1 (c) Subset of Training Data}
 
 \begin{table}[H]
     \centering
@@ -325,6 +325,104 @@ Observe the experiment results, we can find that:
     \item Here, I test 10th order of polynomial function.
     \item LS tends to overfit when learning a more complex model.
     \item On the contrary, RLS and LASSO can avoid get overfitting.
+\end{enumerate}
+
+\subsection*{2 (a) Using Feature Directly}
+
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|c}
+    \hline
+        & Least-Sqaures (LS)     & \begin{tabular}[c]{@{}c@{}}Regularized LS (RLS)\\ $\lambda$ = 0.7\end{tabular} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}L1-Regularized LS (LASSO)\\ $\lambda$ = 4\end{tabular}} \\ \hline
+    MSE & 3.102                  & 2.62                                                                        & \multicolumn{1}{c|}{2.45}                                                                           \\ \hline
+    MAE & 1.365                  & 1.277                                                                       & \multicolumn{1}{c|}{1.25}                                                                           \\ \hline
+        & Robust Regression (RR) & Bayesian Regression (BR)                                                    &                                                                                                     \\ \cline{1-3}
+    MSE & 3.112                  & 3.146                                                                       &                                                                                                     \\ \cline{1-3}
+    MAE & 1.365                  & 1.448                                                                       &                                                                                                     \\ \cline{1-3}
+    \end{tabular}
+\end{table}
+    
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{fig/2a-ls.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/2a-rls.png} 
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}  
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2a-lasso.png}   
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2a-rr.png} 
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2a-br.png} 
+    \end{subfigure}
+\end{figure}
+
+\subsection*{Conclusion}
+\begin{enumerate}[label=(\roman*)]
+    \item LASSO works the best.
+    \item I find that all the methods have the similar results finally
+\end{enumerate}
+
+\subsection*{2 (b) 2nd Order Polynomial}
+
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|c}
+    \hline
+        & Least-Sqaures (LS)     & \begin{tabular}[c]{@{}c@{}}Regularized LS (RLS)\\ $\lambda$ = 0.57\end{tabular} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}L1-Regularized LS (LASSO)\\ $\lambda$ = 3\end{tabular}} \\ \hline
+    MSE & 2.923594                  & 2.425267                                                                      & \multicolumn{1}{c|}{2.265683}                                                                           \\ \hline
+    MAE & 1.326746                  & 1.207617
+    & \multicolumn{1}{c|}{1.177769}                                                                           \\ \hline
+        & Robust Regression (RR) & Bayesian Regression (BR)                                                    &                                                                                                     \\ \cline{1-3}
+    MSE & 2.898128                & 2.913107                                                                       &                                                                                                     \\ \cline{1-3}
+    MAE & 1.307929                  & 1.296899                                                                       &                                                                                                     \\ \cline{1-3}
+    \end{tabular}
+\end{table}
+    
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{fig/2b-ls.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/2b-rls.png} 
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}  
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2b-lasso.png}   
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2b-rr.png} 
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2b-br.png} 
+    \end{subfigure}
+\end{figure}
+
+\subsection*{Conclusion}
+\begin{enumerate}[label=(\roman*)]
+    \item I find that this 2nd order polynomial feature transformation has a better performance!
 \end{enumerate}
 
 \subsection*{Codes}

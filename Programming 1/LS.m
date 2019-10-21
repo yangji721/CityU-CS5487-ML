@@ -3,6 +3,7 @@ function [theta] = LS(x ,y ,n ,q)
 % y is the output set;
 % n is the set size
 % q is the order of polynomial
+
 b = zeros(n,1);
 for i = 1:n
    b(i) = y(i);

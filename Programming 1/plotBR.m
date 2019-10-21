@@ -27,8 +27,8 @@ end
    fprintf('The value of MSE in Bayesian Regression is: %f\n',MSE);
    
    figure(5)
-   plot(x,y,'+',xx,yy,'r',xx,yymax,'g',xx,yymin,'b')
+   plot(x,y,'+',xx,yy,'+',xx,yymax,'+',xx,yymin,'+')
    legend({'samples','function','+1\sigma-function',' -1\sigma-function'},'Location','northeast')
    title('Bayesian regression (BR)');
-   saveas(figure(5),[pwd '/report/fig/1c-75%-br.png']);
+   saveas(figure(5),[pwd '/report/fig/1e-br.png']);
 end

@@ -6,6 +6,9 @@
 \usepackage{float}
 \usepackage{subcaption}
 \usepackage{mwe}
+\usepackage{blindtext}
+\usepackage{scrextend}
+\addtokomafont{labelinglabel}{\sffamily}
 
 \usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
@@ -15,7 +18,7 @@
 
 \title{CS5487 Programming Assignment 1}
 \date{2019 October}
-\author{Ji Yang}
+\author{Ji Yang 56064832}
 
 \begin{document}
 \maketitle
@@ -41,6 +44,28 @@
 \subsection*{1 (a) Implement 5 regression algorithms}
 Source code can be found at \url{https://github.com/yangji12138/machine-learning/tree/master/Programming%201} or the Codes Appendix.
 
+\vspace{1em}
+\noindent\textbf{File Structure:}
+
+\begin{labeling}{alligator}
+\item [BR.m] Bayesian Regression function for the 1st question
+\item [LASSO.m] LASSO function for the 1st question
+\item [LS.m] Linear Square function for the 1st question
+\item [RLS.m] Regularized LS function for the 1st question
+\item [RR.m] Robust Regression function for the 1st question
+\item [plot*.m] Drawing Function
+\item [main.m] Main function to call the above regression function via predefined parameters for the 1st question
+\item [CBR.m] Bayesian Regression function for the 2nd question
+\item [CLASSO.m] LASSO function for the 2nd question
+\item [CLS.m] Linear Square function for the 2nd question
+\item [CRLS.m] Regularized LS function for the 2nd question
+\item [CRR.m] Robust Regression function for the 2nd question
+\item [counting.m] Main function to call the above regression function via predefined parameters or the 2nd question
+\item [featuret.m] feature transformation function
+\end{labeling}
+
+
+
 \subsection*{1 (b) Using Sample Data to estimate 5-th order poly function}
 
 \begin{table}[H]
@@ -55,11 +80,11 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{fig/1b-ls.png}
+    \includegraphics[width=0.55\textwidth]{fig/1b-ls.png}
     \label{fig:1b-ls}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
@@ -82,6 +107,9 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
     \end{subfigure}
 \end{figure}
 
+\subsection*{Conclusion}
+I adjust the hyperparameters $\lambda$ to achieve the best MSE. The detailed hyperparameters can be viewed in the table. For Bayesian Regression, I set $\alpha$ = 1, which denotes the proportion of the prior knowledge.
+
 \subsection*{1 (c) Subset of Training Data}
 
 \begin{table}[H]
@@ -101,13 +129,13 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
     \end{tabular}
     \end{table}
 
-\begin{figure}
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.45\textwidth]{fig/1c-error.png} 
+    \includegraphics[width=0.8\textwidth]{fig/1c-error.png} 
     \caption{MSE versus training set}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
         \centering
         \begin{subfigure}[b]{0.475\textwidth}
             \centering
@@ -136,7 +164,7 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
         \caption{10\% Random Sample}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
@@ -165,7 +193,7 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
     \caption{25\% Random Sample}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \begin{subfigure}[b]{0.475\textwidth}
         \centering
@@ -227,8 +255,9 @@ Source code can be found at \url{https://github.com/yangji12138/machine-learning
 Observe the experiment results, we can find that:
 
 \begin{enumerate}[label=(\roman*)]
-    \item RLS, LASSO and Bayesian Regression tends to be more robust
-    \item RL and Roust Regression tends to overfit 
+    \item According to the above the figures, we can find that RLS and BR have better regression performances when the dataset is small
+    \item This experiment also indicates that RLS, LASSO and BR have better resistances against overfitting
+    \item The above figures indicate that Bayesian Regression tend to be robust even when dataset is small due to the existence of prior knowledge. However, LS, RLS and LASSO is a kind of data-driven training method.
 \end{enumerate}
 
 \subsection*{(d) Adding Outlier Output Values}
@@ -243,9 +272,11 @@ Observe the experiment results, we can find that:
     \end{tabular}
 \end{table}
 
+\vspace{-1em}
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{fig/1d-ls.png}
+    \includegraphics[width=0.475\textwidth]{fig/1d-ls.png}
     \label{fig:1b-ls}
 \end{figure}
 
@@ -325,6 +356,8 @@ Observe the experiment results, we can find that:
     \item Here, I test 10th order of polynomial function.
     \item LS tends to overfit when learning a more complex model.
     \item On the contrary, RLS and LASSO can avoid get overfitting.
+    \item Observing the RR curve, we can find the the twists of the curve and RR curve is different from the true function. Therefore, RR also tends to overfit when the order of function is high-order. 
+    \item For Bayesian Regression, due to the existence of prior knowledge, it has the better performance.
 \end{enumerate}
 
 \subsection*{2 (a) Using Feature Directly}
@@ -372,7 +405,8 @@ Observe the experiment results, we can find that:
 
 \subsection*{Conclusion}
 \begin{enumerate}[label=(\roman*)]
-    \item LASSO works the best.
+    \item By adjusting the hyperparameters $\lambda$, I finally set $\lambda = 0.7$ for RLS and $\lambda = 4$ for LASSO.
+    \item According to the experiments, LASSO works the best.
     \item I find that all the methods have the similar results finally
 \end{enumerate}
 
@@ -422,7 +456,60 @@ Observe the experiment results, we can find that:
 
 \subsection*{Conclusion}
 \begin{enumerate}[label=(\roman*)]
-    \item I find that this 2nd order polynomial feature transformation has a better performance!
+    \item By adjusting the hyperparameters $\lambda$, I finally set $\lambda = 0.57$ for RLS and $\lambda = 3$ for LASSO.
+    \item I find that this 2nd order polynomial feature transformation has a better performance since more features are captioned by the 2nd order function
+\end{enumerate}
+
+\subsection*{2 (b) Custom Function $\frac{1}{1+\exp{x}}$}
+
+Here, I adopt a feature transformation function $\frac{1}{1+\exp{x}}$.
+
+\begin{table}[H]
+    \begin{tabular}{|c|c|c|c}
+    \hline
+        & Least-Sqaures (LS)     & \begin{tabular}[c]{@{}c@{}}Regularized LS (RLS)\\ $\lambda$ = 0.69\end{tabular} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}L1-Regularized LS (LASSO)\\ $\lambda$ = 2\end{tabular}} \\ \hline
+    MSE & 6.68                  & 6.5                                                                      & \multicolumn{1}{c|}{6.73}                                                                           \\ \hline
+    MAE & 2.21                  & 1.89
+    & \multicolumn{1}{c|}{2.15}                                                                           \\ \hline
+        & Robust Regression (RR) & Bayesian Regression (BR)                                                    &                                                                                                     \\ \cline{1-3}
+    MSE & 7.15                & 6.59                                                                       &                                                                                                     \\ \cline{1-3}
+    MAE & 2.26                  & 2.16                                                                       &                                                                                                     \\ \cline{1-3}
+    \end{tabular}
+\end{table}
+    
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{fig/2c-ls.png}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.475\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{fig/2c-rls.png} 
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.475\textwidth}  
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2c-lasso.png}   
+    \end{subfigure}
+    \vskip\baselineskip
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2c-rr.png} 
+    \end{subfigure}
+    \quad
+    \begin{subfigure}[b]{0.475\textwidth}   
+        \centering 
+        \includegraphics[width=\textwidth]{fig/2c-br.png} 
+    \end{subfigure}
+\end{figure}
+
+\subsection*{Conclusion}
+\begin{enumerate}[label=(\roman*)]
+    \item By adjusting the hyperparameters $\lambda$, I finally set $\lambda = 0.69$ for RLS and $\lambda = 2$ for LASSO.
+    \item Observing the above figures, we find that this feature transformation decreases the MSE. 
 \end{enumerate}
 
 \subsection*{Codes}

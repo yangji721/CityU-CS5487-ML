@@ -1,13 +1,13 @@
-function [result]= meanshift(Data)
+function [centroid,result]= meanshift(Data)
 %% Initialization
 % D is dimension
 % N is the total number of data
 [D,N] = size(Data);
 % Using label to denote undiscovered data
 label = 1:N;
-bandwidth = 0.75;
+bandwidth = 5;
 data = Data';
-threshold = 1e-5;
+threshold = 1e-7;
 visit = zeros(N,1);
 count=[];
 clustern=0;
@@ -24,8 +24,7 @@ center = data(label(rnd),:);
 frequency =zeros(N,1);
     
 %% Move to new center until it converges
-hold on
-while 1
+    while 1
     % calculate the distance between data and center data
     distance = sum((repmat(center,N,1)-data).^2,2);
     % flag denotes the inner point in the circle
@@ -48,7 +47,6 @@ while 1
        break;
     end
         center = newcenter;
-        plot(center(1),center(2),'*y');
     end
     % Decide the need of merging
     mergewith=0;
@@ -59,13 +57,13 @@ while 1
             break;
         end
     end
-    % Merging
+    % No need to merge
     if mergewith==0           
         clustern=clustern + 1;
         clustercenter(clustern,:)=center;
         count(:,clustern)=frequency;
     else                      
-    % Don't merge
+    % merging
         clustercenter(mergewith,:)=0.5*(clustercenter(mergewith,:)+center);
         count(:,mergewith)=count(:,mergewith)+frequency;  
     end
@@ -73,32 +71,12 @@ while 1
     label = find(visit==0);
 end
 
+%% Calculate the Results
 for i=1:N
     [value index] = max(count(i,:));
     Idx(i)=index;
 end
-result = Idx;
+result = [data, Idx'];
+centroid = clustercenter;
 
-figure(2);
-hold on;
-for i=1:N
-    if Idx(i)==1;
-        plot(data(i,1),data(i,2),'.y');
-    elseif Idx(i)==2;
-         plot(data(i,1),data(i,2),'.b');
-    elseif Idx(i)==3;
-         plot(data(i,1),data(i,2),'.r');
-    elseif Idx(i)==4;
-         plot(data(i,1),data(i,2),'.k');
-    elseif Idx(i)==5;
-         plot(data(i,1),data(i,2),'.g');
-    end
-end
-% %% Calculate Results
-%     result=[];
-%     for i=1:N
-%         tmp=[];
-%         [junk, label] = max(count(i,:));
-%         result=[result;data(:,i)' label];
-%     end
 end

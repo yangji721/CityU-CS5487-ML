@@ -1,4 +1,4 @@
-function [result] = em_gaussian(Data, K)
+function [center,result] = em_gaussian(Data, K)
 %% Main Function of Expectation Maximization for Gaussian Mixture Model
 % For *output*
 % P is the probality of each data in each cluster (N*D)
@@ -51,4 +51,5 @@ result = [];
 for i = 1:N
     result = [result;X(i,:) index(i)];
 end
+center = Miu;
 end

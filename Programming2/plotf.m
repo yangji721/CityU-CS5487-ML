@@ -2,7 +2,11 @@ function [rate]= plotf(result, gtruth, center)
 
 %% Pretreatment
 if isscalar(center)
-    L = 0;
+    if center == 0
+       L = 0;
+    else
+       L = 2;
+    end
 else
     L =1;
 end

@@ -5,7 +5,7 @@ function [centroid,result]= meanshift(Data)
 [D,N] = size(Data);
 % Using label to denote undiscovered data
 label = 1:N;
-bandwidth = 5;
+bandwidth = 6;
 data = Data';
 threshold = 1e-7;
 visit = zeros(N,1);

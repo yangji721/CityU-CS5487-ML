@@ -10,7 +10,7 @@ function [center,result] = em_gaussian(Data, K)
 % Data is D*N matix, D is the dimension
 % K is the number of clusters
 %% Initialization
-threshold = 1e-15;
+threshold = 1e-3;
 [D,N] = size(Data);
 % Randomly select K center point
 rnd = randperm(N);

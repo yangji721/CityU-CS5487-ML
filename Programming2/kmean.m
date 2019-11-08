@@ -19,10 +19,11 @@ for i= 1:m
     n_max(i) = max(data(i,:));
     n_min(i) = min(data(i,:));
     for j = 1:K
-        center(j,i) = n_min(i) +(n_max(i)-n_min(i))*rand();
-    end
-end
+         center(j,i) = n_min(i) +(n_max(i)-n_min(i))*rand();
+     end
+ end
 
+% center = [-6,0;-2,0;2,0;6,0]; 
 %% Endless Iteration until it converges
 while 1
     % Define distance
@@ -55,7 +56,7 @@ while 1
     end
     
     % if center point almostly doesn't move, then it means converging
-    if (norm(pre_c-center) < 0.1)
+    if (norm(pre_c-center) < 1)
         break;
     end
 end

@@ -1,4 +1,4 @@
-function [rate]= plotf(result, gtruth, center)
+function plotf(result, gtruth, center)
 
 %% Pretreatment
 if isscalar(center)
@@ -17,8 +17,8 @@ end
 data = result(:,1:(p-1));
 label = result(:,p);
 
-%% Calculate the correct rate
-rate = length(find(label-gtruth'))/m;
+%% Calculate the correct rate (wrong)
+% rate = length(find(label-gtruth'))/m;
 
 %% Plot Figure
 figure;

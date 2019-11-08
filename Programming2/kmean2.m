@@ -4,7 +4,7 @@ function [center result]= kmean2(data, K)
 % K is the pre-defined number of clusters
 % center is the the center of each cluster
 % result it the data_X and clustering label
-lambda = 0.1;
+lambda = 0.5;
 pixel = [];
 
 %% Pretreatment

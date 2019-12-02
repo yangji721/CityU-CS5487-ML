@@ -53,6 +53,7 @@ if __name__ == "__main__":
     score = clf.score(test_x,test_y)
     print("KNN score: {:.6f}".format(score))
     
+    
     dim_list = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
     score_list = []
     for dim in dim_list:
@@ -75,7 +76,7 @@ if __name__ == "__main__":
     
     score_list = []
     for dim in dim_list:
-        KernelPCA(n_components=dim,kernel="sigmoid")
+        pca = KernelPCA(n_components=dim,kernel="sigmoid")
         train_x_scale = scale(train_x)
         test_x_scale = scale(test_x)
         pca.fit(train_x_scale)
@@ -95,7 +96,7 @@ if __name__ == "__main__":
     
     score_list = []
     for dim in dim_list:
-        KernelPCA(n_components=dim,kernel="rbf")
+        pca = KernelPCA(n_components=dim,kernel="rbf")
         train_x_scale = scale(train_x)
         test_x_scale = scale(test_x)
         pca.fit(train_x_scale)
@@ -182,7 +183,7 @@ if __name__ == "__main__":
     ## SVM + sigmoid kernel PCA
     score_list = []
     for dim in dim_list:
-        KernelPCA(n_components=dim,kernel="sigmoid")
+        pca = KernelPCA(n_components=dim,kernel="sigmoid")
         train_x_scale = scale(train_x)
         test_x_scale = scale(test_x)
         pca.fit(train_x_scale)
@@ -203,7 +204,7 @@ if __name__ == "__main__":
     
     score_list = []
     for dim in dim_list:
-        KernelPCA(n_components=dim,kernel="rbf")
+        pca = KernelPCA(n_components=dim,kernel="rbf")
         train_x_scale = scale(train_x)
         test_x_scale = scale(test_x)
         pca.fit(train_x_scale)
@@ -246,7 +247,7 @@ if __name__ == "__main__":
 
     score_list = []
     for dim in dim_list:
-        KernelPCA(n_components=dim,kernel="sigmoid")
+        pca = KernelPCA(n_components=dim,kernel="sigmoid")
         train_x_scale = scale(train_x)
         test_x_scale = scale(test_x)
         pca.fit(train_x_scale)
@@ -266,7 +267,7 @@ if __name__ == "__main__":
 
     score_list = []
     for dim in dim_list:
-        KernelPCA(n_components=dim,kernel="rbf")
+        pca = KernelPCA(n_components=dim,kernel="rbf")
         train_x_scale = scale(train_x)
         test_x_scale = scale(test_x)
         pca.fit(train_x_scale)
@@ -320,7 +321,7 @@ if __name__ == "__main__":
 
     score_list = []
     for dim in dim_list:
-        KernelPCA(n_components=dim,kernel="sigmoid")
+        pca = KernelPCA(n_components=dim,kernel="sigmoid")
         train_x_scale = scale(train_x)
         test_x_scale = scale(test_x)
         pca.fit(train_x_scale)
@@ -339,7 +340,7 @@ if __name__ == "__main__":
     
     score_list = []
     for dim in dim_list:
-        KernelPCA(n_components=dim,kernel="rbf")
+        pca = KernelPCA(n_components=dim,kernel="rbf")
         train_x_scale = scale(train_x)
         test_x_scale = scale(test_x)
         pca.fit(train_x_scale)
